@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=block");
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@800&display=block");
+@import url("https://cdn.jsdelivr.net/npm/@observablehq/inspector@3/dist/inspector.css");
+@import "../styles/vars.css";
+
+:root {
+  color: var(--fg-color);
+  font-weight: 300;
+  font-size: 18px;
+  font-family: "Noto Sans KR", sans-serif;
+  line-height: 2;
+  word-break: keep-all;
+  background-color: var(--bg-color);
+}
+
+body {
+  margin: 0;
+}
+
+/* Paragraph-like elements */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+pre,
+ul,
+ol,
+blockquote,
+dl {
+  margin: 1.5rem auto;
+  hanging-punctuation: first;
+  letter-spacing: -0.03em;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 3rem;
+  font-weight: 800;
+  font-family: "Nanum Myeongjo", serif;
+  line-height: 1.5;
+}
+
+h1 + h2,
+h2 + h3,
+h3 + h4,
+H4 + h5,
+h5 + h6 {
+  margin-top: 1.5rem;
+}
+
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+h4 {
+  font-size: 1rem;
+}
+
+/* Lists */
+ul,
+ol {
+  padding-left: 1.4rem;
+  list-style-position: outside;
+}
+
+li > ul,
+li > ol {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Code */
+pre {
+  margin-right: -1px;
+  margin-left: -1px;
+  padding: 1rem;
+  overflow-x: auto;
+  background-color: #f4f4f4;
+}
+
+/* Quotes */
+blockquote {
+  margin-right: -1px;
+  margin-left: -1px;
+  padding: 1rem;
+  background-color: #f4f4f4;
+}
+blockquote > *:first-child {
+  margin-top: 0;
+}
+blockquote > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Inlines */
+a,
+a:visited {
+  color: var(--link-color);
+  text-decoration: none;
+  border-bottom: 1px solid var(--link-color);
+}

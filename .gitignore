@@ -1,0 +1,10 @@
+# gatsby
+src/**/*.css.d.ts
+
+# nodejs
+.cache/
+node_modules/
+public/
+
+# vim
+*.swp
