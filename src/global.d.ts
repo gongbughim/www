@@ -1,3 +1,5 @@
 declare module "@mdx-js/react"
 declare module "prism-react-renderer/prism"
 declare module "@observablehq/runtime"
+declare module "remark-math"
+declare module "remark-html-katex"

@@ -1,3 +1,6 @@
+const remarkMath = require(`remark-math`)
+const remarkHtmlKatex = require(`remark-html-katex`)
+
 module.exports = {
   siteMetadata: {
     title: `공부왕 김공부`,
@@ -31,6 +34,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
+        remarkPlugins: [remarkMath, remarkHtmlKatex],
         defaultLayouts: {
           pages: require.resolve("./src/components/layout.tsx"),
         },
