@@ -6,7 +6,7 @@
 :root {
   color: var(--fg-color);
   font-weight: 300;
-  font-size: 18px;
+  font-size: 16px;
   font-family: "Noto Sans KR", sans-serif;
   line-height: 2;
   word-break: keep-all;
@@ -84,11 +84,6 @@ li > ol {
 
 /* Code */
 pre {
-  margin-right: -1px;
-  margin-left: -1px;
-  padding: 1rem;
-  overflow-x: auto;
-  background-color: #f4f4f4;
 }
 
 /* Quotes */

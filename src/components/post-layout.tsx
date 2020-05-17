@@ -3,14 +3,19 @@ import { graphql, Link } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { MDXProvider } from "@mdx-js/react"
 
-import Observable from "../components/observable"
-import Header from "../components/header"
-import Footer from "../components/footer"
-import SEO from "../components/seo"
+import Observable from "./observable"
+import Header from "./header"
+import Footer from "./footer"
+import SEO from "./seo"
+import CodeBlock from "./code-block"
 import css from "./layout.module.css"
 
 export default function PageTemplate({ data: { mdx } }) {
-  const shortcodes = { Link, Observable }
+  const shortcodes = {
+    Link,
+    Observable,
+    code: CodeBlock,
+  }
 
   return (
     <div className={css.root}>
