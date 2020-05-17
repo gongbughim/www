@@ -4,8 +4,6 @@ module.exports = {
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
-    "prettier/@typescript-eslint",
-    "plugin:prettier/recommended",
   ],
   settings: {
     react: {
@@ -28,7 +26,6 @@ module.exports = {
   rules: {
     "react/prop-types": "off",
     "react/display-name": "off",
-    "prettier/prettier": "error",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/camelcase": "off",
     "@typescript-eslint/no-explicit-any": "off",
