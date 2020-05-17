@@ -1,0 +1,56 @@
+---
+title: "문자열 내 p와 y의 개수"
+date: "2020-05-17 11:30:00"
+---
+[문자열 내 p와 y의 개수](https://programmers.co.kr/learn/courses/30/lessons/12916) 문제를 풀어봤어요.
+
+문제 설명은 이렇습니다.
+
+> 대문자와 소문자가 섞여있는 문자열 s가 주어집니다. s에 'p'의 개수와 'y'의 개수를 비교해 같으면 True, 다르면 False를 return 하는 solution를 완성하세요. 'p', 'y' 모두 하나도 없는 경우는 항상 True를 리턴합니다. 단, 개수를 비교할 때 대문자와 소문자는 구별하지 않습니다.
+>
+> 예를 들어 s가 pPoooyY면 true를 return하고 Pyy라면 false를 return합니다.
+>
+> 제한사항:
+>
+> * 문자열 s의 길이 : 50 이하의 자연수
+> * 문자열 s는 알파벳으로만 이루어져 있습니다.
+
+## 자바스크립트
+
+제일 간단한 방법은 카운팅 변수 두 개를 만들고 `for` 문을 이용해서 각 문자가 몇 개 나오는지 계산한
+후 비교하는 방법입니다. 하지만 개수가 같은지만 비교하는 것이니 굳이 변수를 두 개 만들 필요가 없을
+것 같아요. p가 나오면 1을 더하고 y가 나오면 1을 빼는 식으로 계산한 후 결과가 0인지만 살피면
+됩니다.
+
+```javascript
+let solution = s => !s
+    .toLowerCase()
+    .split('')
+    .map(c => c === 'p' ? 1 : c === 'y' ? -1 : 0)
+    .reduce((a, b) => a + b)
+```
+
+## 파이썬
+
+마찬가지 방식으로 풀었습니다.
+
+```python
+def solution(s):
+    return not sum({'p': -1, 'y': 1}.get(c, 0) for c in s.lower())
+```
+
+## 해스켈
+
+해스켈은 익숙하지 않아서 더 짧게 쓸 방법이 있는지 잘 모르겠어요.
+
+```haskell
+import Data.Char
+
+solution :: [Char] -> Bool
+solution s = 0 == sum [counter (toLower c) | c <- s]
+
+counter :: Char -> Int
+counter 'p' = 1
+counter 'y' = -1
+counter _ = 0
+```
