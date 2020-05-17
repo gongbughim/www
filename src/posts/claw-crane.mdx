@@ -1,0 +1,33 @@
+---
+title: "크레인 인형뽑기"
+date: "2020-05-17 14:30:00"
+---
+[크레인 인형뽑기](https://programmers.co.kr/learn/courses/30/lessons/12916) 문제를 풀어봤어요. 문제
+설명은 생략합니다.
+
+## 파이썬
+
+주어진 `board`를 그대로 써서 문제를 풀면 `board`가 커지거나 `moves`가 많아지면 점점 더 효율이
+떨어지는 문제가 있어요. `board`를 열(column)들의 스택으로 변환하고 미리 0을 제거해두면
+풀이가 간단해집니다.
+
+```python
+def solution(board, moves):
+    # 주어진 board를 열(column)들의 스택으로 변환하고 0을 미리 제거.
+    board = [[x for x in col if x > 0]
+             for col in zip(*reversed(board))]
+
+    # 이제 코드도 간결하고 성능도 빠르게 풀 수 있습니다.
+    answer = 0
+    bucket = []
+    for move in moves:
+        col = board[move - 1]
+        if len(col) == 0:
+            continue
+        bucket.append(col.pop())
+        if len(bucket) >= 2 and bucket[-1] == bucket[-2]:
+            bucket.pop()
+            bucket.pop()
+            answer += 2
+    return answer
+```
