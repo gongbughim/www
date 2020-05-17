@@ -41,16 +41,42 @@ def solution(s):
 
 ## 해스켈
 
-해스켈은 익숙하지 않아서 더 짧게 쓸 방법이 있는지 잘 모르겠어요.
+해스켈은 익숙하지 않아서 공부할겸 여러 방법으로 풀어봤어요.
+
+첫번째는 패턴 매칭 방식입니다. `import` 문과 타입을 명시하는 줄 때문에 길어 보이지만
+실제 로직은 간결해요. 다만 함수 이름(`counter`)이 계속 반복되는 점이 거슬립니다.
 
 ```haskell
 import Data.Char
 
 solution :: [Char] -> Bool
-solution s = 0 == sum [counter (toLower c) | c <- s]
+solution s = 0 == sum [counter (toLower c) | c <- s] where
+    counter 'p' = 1
+    counter 'y' = -1
+    counter _ = 0
+```
 
-counter :: Char -> Int
-counter 'p' = 1
-counter 'y' = -1
-counter _ = 0
+두번째 방법은 가드(guard) 방식입니다. 함수 이름의 중복이 사라졌어요.
+
+```haskell
+import Data.Char
+
+solution' :: [Char] -> Bool
+solution' s = 0 == sum [counter (toLower c) | c <- s] where
+    counter c
+        | c == 'p' = 1
+        | c == 'y' = -1
+        | otherwise = 0
+```
+
+세번째 방법은 케이스(case)를 쓰는 방식입니다. `counter` 함수를 별도로 쓰지 않아도 되니
+더 간결해졌어요.
+
+```haskell
+import Data.Char
+
+solution'' :: [Char] -> Bool
+solution'' s = 0 == sum [case toLower c of 'p' -> 1
+                                           'y' -> -1
+                                           _   -> 0 | c <- s]
 ```
